@@ -16,7 +16,6 @@ int main(int argc, char* argv[]){
         } 
 
         if(strcmp("Directed", argv[1]) == 0 && (strcmp("network01.txt", argv[2]) == 0 ||strcmp("network02.txt", argv[2]) == 0 || strcmp("network03.txt", argv[2]) == 0) ){
-            cout << "Directed Graph \n";
             typeOfGraph = 1;
             result results;
             read(argv[2], typeOfGraph, results);
