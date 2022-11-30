@@ -18,15 +18,17 @@ int main(int argc, char* argv[]){
         if(strcmp("Directed", argv[1]) == 0 && (strcmp("network01.txt", argv[2]) == 0 ||strcmp("network02.txt", argv[2]) == 0 || strcmp("network03.txt", argv[2]) == 0) ){
             cout << "Directed Graph \n";
             typeOfGraph = 1;
-            read(argv[2], typeOfGraph);
-            //cin >> command,
-            //readCommands(command);
+            result results;
+            read(argv[2], typeOfGraph, results);
+            cin >> command;
+            readCommands(command, results);
         
         }else if (strcmp("Undirected", argv[1]) == 0 && (strcmp("network01.txt", argv[2]) == 0 ||strcmp("network02.txt", argv[2]) == 0 || strcmp("network03.txt", argv[2]) == 0) ){
             cout << "Undirected Graph";
             typeOfGraph = 2;
-            cin >> command,
-            readCommands(command);
+            //read(argv[2], typeOfGraph);
+            //cin >> command,
+            //readCommands(command);
         }
         else {
             throw(1);
@@ -34,7 +36,7 @@ int main(int argc, char* argv[]){
 
     }
 
-    catch(...){
+    catch(int n){
          cerr <<"Usage: ./PJ3 <GraphType> <InputFile>\n";
     }
     return 1; 
