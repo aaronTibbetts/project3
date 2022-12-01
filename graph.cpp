@@ -28,8 +28,12 @@ void singlePair(int source, int destination, result &results, stack &theStack, h
     
     for(int i = 0; i <minHeap.capacity; i++){
         insert(results.V[i]->index, minHeap);
-        cout << minHeap.a[i]->key;
     }
+
+    while(minHeap.size > 0){
+
+    }
+
    
     
     
