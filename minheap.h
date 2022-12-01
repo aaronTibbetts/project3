@@ -8,22 +8,18 @@ struct ELEMENT {
 struct heap {
     int capacity;
     int size;
-    ELEMENT * a;
+    ELEMENT ** a;
 };
 
 
-void heapifyMin();
+void heapifyMin(heap &minHeap, int i);
 
-void buildHeapMin();
+void buildHeapMin(heap &minHeap);
 
-void extractMin();
+void extractMin(heap &minHeap);
 
-void insert();
+void insert(int key, heap &minHeap);
 
-void deleteHeap();
-
-void decreaseKey();
-
-int findMinDeleteIndex();
+void decreaseKey(heap &minHeap, int pos, int newKey);
 
 #endif

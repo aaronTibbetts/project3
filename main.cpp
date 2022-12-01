@@ -18,16 +18,18 @@ int main(int argc, char* argv[]){
         if(strcmp("Directed", argv[1]) == 0 && (strcmp("network01.txt", argv[2]) == 0 ||strcmp("network02.txt", argv[2]) == 0 || strcmp("network03.txt", argv[2]) == 0) ){
             typeOfGraph = 1;
             result results;
+            stack Stack;  
+            heap minHeap; 
             read(argv[2], typeOfGraph, results);
             cin >> command;
-            readCommands(command, results);
+            readCommands(command, results, Stack, minHeap);
         
         }else if (strcmp("Undirected", argv[1]) == 0 && (strcmp("network01.txt", argv[2]) == 0 ||strcmp("network02.txt", argv[2]) == 0 || strcmp("network03.txt", argv[2]) == 0) ){
-            cout << "Undirected Graph";
             typeOfGraph = 2;
-            //read(argv[2], typeOfGraph);
-            //cin >> command,
-            //readCommands(command);
+            result results;
+            read(argv[2], typeOfGraph, results);
+            cin >> command;
+            //readCommands(command, results);
         }
         else {
             throw(1);

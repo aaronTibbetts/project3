@@ -1,12 +1,13 @@
 #include "util.h"
 #include "graph.h"
+#include "vertex.h"
 #include <cstring>
 #include <string>
 #include <fstream>
 #include <iostream>
 using namespace std; 
 
-void readCommands(string command, result &results){
+void readCommands(string command, result &results, stack &theStack, heap &minHeap){
     if(command.compare("Stop") == 0){
         stop();
     } else if(command.compare("SinglePair")== 0){
@@ -14,10 +15,14 @@ void readCommands(string command, result &results){
             int destination;
             cin >> source;
             cin >> destination;
-            //check for invalid source or destination
-            //singlePair(source,destination);
+            if (source == 0 || destination == 0){
+                cerr << "Error: Invalid source or destination";
+                cin >> command;
+                readCommands(command, results, theStack, minHeap);
+            }
+            singlePair(source, destination, results, theStack, minHeap);
             cin >> command;
-            //readCommands(command);
+            readCommands(command, results,theStack, minHeap);
     }else if(command.compare("SingleSource") == 0){
             int source;
             cin >> source;
@@ -46,11 +51,11 @@ void readCommands(string command, result &results){
     }else if (command.compare("PrintADJ") == 0 ){
             printAdj(results);
             cin >> command;
-            readCommands(command, results);
+            readCommands(command, results, theStack, minHeap);
     } else {
         cerr << "Error: Invalid command" << '\n';
         cin >> command;
-        readCommands(command, results);
+        readCommands(command, results, theStack, minHeap);
     }
 }
 

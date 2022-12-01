@@ -2,9 +2,10 @@
 #define UTIL_H
 #include <string>
 #include "graph.h"
+#include "vertex.h"
 using namespace std; 
 
-void readCommands(string command, result &results);
+void readCommands(string command, result &results,stack &theStack, heap &minHeap);
 
 void stop();
 

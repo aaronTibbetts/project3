@@ -1,16 +1,13 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 #include <string>
+#include "stack.h"
+#include "vertex.h"
+#include "minheap.h"
+
 
 
 using namespace std; 
-struct VERTEX {
-    float key;
-    int parent; 
-    string color;
-    int index;
-    int position;
-};
 
 struct edge{
     int index;
@@ -26,7 +23,7 @@ struct result{
     int size;
 };
 
-void singlePair(int source, int destination);
+void singlePair(int source, int destination, result &results, stack &theStack, heap &minHeap);
 
 void singleSource(int source);
 

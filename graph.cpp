@@ -1,4 +1,7 @@
 #include "graph.h"
+#include "stack.h"
+#include "vertex.h"
+#include "minheap.h"
 #include <iostream>
 #include <stdio.h>
 
@@ -15,4 +18,19 @@ void printAdj(result &results){
     }
     cout << endl;
    }
+}
+
+void singlePair(int source, int destination, result &results, stack &theStack, heap &minHeap){
+    stack *Stack = NULL;
+    minHeap.capacity = results.size;
+    minHeap.a = (ELEMENT**)malloc(sizeof(ELEMENT*)* minHeap.capacity);
+    minHeap.size = 0;
+    
+    for(int i = 0; i <minHeap.capacity; i++){
+        insert(results.V[i]->index, minHeap);
+        cout << minHeap.a[i]->key;
+    }
+   
+    
+    
 }
